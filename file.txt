@@ -1,1 +1,6 @@
 wellcome Filip :)
+
+http://gitimmersion.com/
+https://learngitbranching.js.org/
+
+https://www.jrebel.com/blog/git-cheat-sheet
