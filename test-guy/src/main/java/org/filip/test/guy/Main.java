@@ -5,6 +5,8 @@
  */
 package org.filip.test.guy;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Jules
@@ -28,14 +30,17 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        doSomething = new javax.swing.JButton();
+        doSomethingButton = new javax.swing.JButton();
+        showMessageButton = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        textToShowLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        doSomething.setText("Do Something");
-        doSomething.addActionListener(new java.awt.event.ActionListener() {
+        doSomethingButton.setText("Do Something");
+        doSomethingButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                doSomethingActionPerformed(evt);
+                doSomethingButtonActionPerformed(evt);
             }
         });
 
@@ -45,38 +50,76 @@ public class Main extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(137, 137, 137)
-                .addComponent(doSomething)
+                .addComponent(doSomethingButton)
                 .addContainerGap(164, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
-                .addComponent(doSomething)
+                .addComponent(doSomethingButton)
                 .addContainerGap(51, Short.MAX_VALUE))
         );
+
+        showMessageButton.setText("Show Message");
+        showMessageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showMessageButtonActionPerformed(evt);
+            }
+        });
+
+        textToShowLabel.setText("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addComponent(showMessageButton)
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(textToShowLabel)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 180, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(showMessageButton)
+                    .addComponent(jLabel1)
+                    .addComponent(textToShowLabel))
+                .addGap(0, 129, Short.MAX_VALUE))
         );
+
+        jLabel1.getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void doSomethingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doSomethingActionPerformed
+    private void doSomethingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doSomethingButtonActionPerformed
         // TODO add your handling code here:
-        new Welcome().setVisible(true);
+        JFrame welcomeFrame = new Welcome();
+        welcomeFrame.setVisible(true);
+        welcomeFrame.setLocation(this.getLocation());
         this.dispose();
-    }//GEN-LAST:event_doSomethingActionPerformed
+    }//GEN-LAST:event_doSomethingButtonActionPerformed
+
+    private void showMessageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showMessageButtonActionPerformed
+        // TODO add your handling code here:
+        if ("".equals(textToShowLabel.getText())) {
+            textToShowLabel.setText("Hello People");
+        } else {
+            textToShowLabel.setText("");
+        }
+
+    }//GEN-LAST:event_showMessageButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,7 +157,10 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton doSomething;
+    private javax.swing.JButton doSomethingButton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton showMessageButton;
+    private javax.swing.JLabel textToShowLabel;
     // End of variables declaration//GEN-END:variables
 }
